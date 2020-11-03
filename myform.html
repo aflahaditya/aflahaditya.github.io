@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>05211942000001 - AFLAH ADITYA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .label {
+            float: left;
+            width: 120px;
+        } 
+
+        .infobox { 
+            width: 200px; 
+        }
+
+        .error {
+            color: red;
+            padding-left: 10px;
+        }
+
+        .submit {
+            margin-left: 125px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <form id="signup" method="post" action=""> 
+        <div><span class="label">User Id *</span><input type="text" class="infobox" name="userid" /><span class="error">
+                This field cannot be blank</span></div>
+        <input class="submit" type="submit" value="Submit">
+    </form>
+
+    <script>
+        $(document).ready(function () { //to make a function available after the document is loaded
+            $('.error').hide(); //error message is hidden
+            $('.submit').click(function (event) { //a click event to attach submit button
+                var data = $('.infobox').val(); //extract the data entered by the user in the text input field and store in variable data
+                var len = data.length; //find out the length of data
+                if (len < 1) { //means that the user has not entered anything in text field
+                    $('.error').show(); //show the error message on screen
+                    event.preventDefault(); //keep the Submit button from sending to the server the data entered by the user.
+                }
+                else { //the user entered the right data
+                    $('.error').hide(); //hide the error message
+                }
+            });
+        });    
+    </script>
+    </div>
+</body>
+
+</html>
